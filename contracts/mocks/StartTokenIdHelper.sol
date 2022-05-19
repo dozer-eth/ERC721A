@@ -9,9 +9,11 @@ pragma solidity ^0.8.4;
  * to be returned by the overriden `_startTokenId()` function of ERC721A in the ERC721AStartTokenId mocks.
  */
 contract StartTokenIdHelper {
+    uint256 public immutable startClaimTokenId;
     uint256 public immutable startMintTokenId;
 
-    constructor(uint256 startMintTokenId_) {
+    constructor(uint256 startClaimTokenId_, uint256 startMintTokenId_) {
+        startClaimTokenId = startClaimTokenId_;
         startMintTokenId = startMintTokenId_;
     }
 }

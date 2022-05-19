@@ -44,6 +44,10 @@ contract ERC721AMock is ERC721A {
         _mint(to, quantity);
     }
 
+    function claim(address to, uint256 startTokenId, uint256 quantity) public {
+        _claim(to, startTokenId, quantity);
+    }
+
     function burn(uint256 tokenId, bool approvalCheck) public {
         _burn(tokenId, approvalCheck);
     }
