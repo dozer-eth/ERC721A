@@ -595,7 +595,7 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
 
         // CHANGED ERC721A Functionality HERE
         uint256 prevOwnershipQuantity = prevOwnership.quantity;
-        if (_startClaimTokenId() >= tokenId && tokenId < _startMintTokenId()) {
+        if (_startClaimTokenId() <= tokenId && tokenId < _startMintTokenId()) {
             currSlot.quantity = 1;
             _ownerships[prevOwnershipIndex].quantity = tokenId - prevOwnershipIndex;
         }
@@ -675,7 +675,7 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
 
         // CHANGED ERC721A Functionality HERE
         uint256 prevOwnershipQuantity = prevOwnership.quantity;
-        if (_startClaimTokenId() >= tokenId && tokenId < _startMintTokenId()) {
+        if (_startClaimTokenId() <= tokenId && tokenId < _startMintTokenId()) {
             currSlot.quantity = 1;
             prevOwnership.quantity = tokenId - prevOwnershipIndex;
         }
