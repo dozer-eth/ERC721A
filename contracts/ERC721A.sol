@@ -387,8 +387,8 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
         uint256 curr = tokenId;
         if (_startClaimTokenId() <= curr && curr < _startMintTokenId()) {
             // Invariant:
-            // These tokens are minted in random order, but there will always be
-            // an ownership that has an address and is not
+            // These tokens are minted in random order, but if the token exists,
+            // there will always be an ownership that has an address and is not
             // burned within _maxBatchSize below tokenId.
             uint256 lowestTokenToCheck = _startClaimTokenId();
             if (tokenId >= _maxBatchSize) {

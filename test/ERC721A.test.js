@@ -570,6 +570,7 @@ const createTestSuite = ({ contract, constructorArgs }) =>
           it('can burn if approvalCheck is false', async function () {
             await this.erc721a.connect(this.addr2).burn(this.tokenIdToBurn, false);
             expect(await this.erc721a.exists(this.tokenIdToBurn)).to.be.false;
+            expect(await this.erc721a.isClaimed(this.tokenIdToBurn)).to.be.true
           });
 
           it('revert if approvalCheck is true', async function () {
