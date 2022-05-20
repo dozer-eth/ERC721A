@@ -597,7 +597,7 @@ contract ERC721A is Context, ERC165, IERC721, IERC721Metadata {
         uint256 prevOwnershipQuantity = prevOwnership.quantity;
         if (_startClaimTokenId() <= tokenId && tokenId < _startMintTokenId()) {
             currSlot.quantity = 1;
-            _ownerships[prevOwnershipIndex].quantity = tokenId - prevOwnershipIndex;
+            _ownerships[prevOwnershipIndex].quantity = tokenId - prevOwnershipIndex + 1;
         }
 
         // If the ownership slot of tokenId+1 is not explicitly set, that means the transfer initiator owns it.
