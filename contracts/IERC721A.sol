@@ -39,6 +39,11 @@ interface IERC721A {
     error MintZeroQuantity();
 
     /**
+     * The quantity of tokens minted must be less than or equal to `_maxBatchSize()`.
+     */
+    error MintLargeQuantity();
+
+    /**
      * The token does not exist.
      */
     error OwnerQueryForNonexistentToken();
@@ -75,6 +80,8 @@ interface IERC721A {
         uint64 startTimestamp;
         // Whether the token has been burned.
         bool burned;
+        // The maximum amount of tokens above this token (inclusive) that this ownership record applies to.
+        uint8 quantity;
     }
 
     /**
